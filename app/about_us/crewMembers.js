@@ -1,4 +1,5 @@
 // crewData.js
+"use client";
 const crewMembers = [
   {
     name: "Sarah Vega",
