@@ -5,10 +5,10 @@ import styles from "./NavItem.module.css";
 
 const NavItem = ({ title, link, isActive }) => {
   return (
-    <li className={styles.navItem}>
+    <li className={styles["nav-Item"]}>
       <Link
         href={link}
-        className={`${styles.navLink} ${isActive ? styles.active : ""}`}
+        className={`${styles["nav-Link"]} ${isActive ? styles.active : ""}`}
       >
         {title}
       </Link>

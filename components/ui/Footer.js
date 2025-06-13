@@ -59,7 +59,7 @@ export const Footer = () => {
           />
           <SocialMediaItem
             url="https://google.com"
-            title="On the streets at night"
+            title="Google"
             icon="/socialmedia/google.png"
           />
           <SocialMediaItem

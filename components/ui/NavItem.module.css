@@ -1,16 +1,16 @@
-.navItem {
+.nav-Item {
   list-style: none;
   margin: 0 10px;
 }
 
-.navLink {
+.nav-Link {
   text-decoration: none;
   color: white;
   font-weight: normal;
   transition: color 0.3s ease;
 }
 
-.navLink:hover {
+.nav-Link:hover {
   color: #00bfff;
 }
 
