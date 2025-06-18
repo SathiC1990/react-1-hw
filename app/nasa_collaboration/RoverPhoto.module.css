@@ -1,0 +1,23 @@
+.rover-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  color: #1a1a1a;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.rover-photo-img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+}
+
+.rover-card p {
+  color: #2c2c2c;
+  font-weight: 500;
+  margin: 0.25rem 0;
+}

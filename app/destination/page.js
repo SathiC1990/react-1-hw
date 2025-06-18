@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import styles from "@/components/destination/destination.module.css";
 import { AddWishlistItem } from "@/components/destination/AddWishlistItem";
-import { planetWishlistItem } from "@/components/destination/planetWishListItem";
+import PlanetWishlistItem from "@/components/destination/planetWishListItem";
 import planetsNames from "@/app/destination/planetsData";
 
 // TASK - React 1 week 2
@@ -57,17 +57,39 @@ export const Destinations = () => {
   const [selectedPlanets, onAddPlanet] = useState([]);
   const numberOfPlanets = selectedPlanets.length;
 
+  const handleAddPlanet = (planet) => {
+    const alreadyExists = selectedPlanets.some(
+      (p) => p.name.toLowerCase() === planet.name.toLowerCase()
+    );
+
+    if (!alreadyExists) {
+      onAddPlanet([...selectedPlanets, planet]);
+    }
+  };
+
   /*let isPlanetSelected = false;
   let numberOfPlanets = 0;*/
 
   const onAddOrRemovePlanet = (name, index) => {
-    const isAlreadySelected = selectedPlanets.includes(name);
+    const isAlreadySelected = selectedPlanets.some(
+      (planet) => planet.name === name
+    );
     let updatedSelection;
+
     if (isAlreadySelected) {
-      updatedSelection = selectedPlanets.filter((planet) => planet !== name);
+      updatedSelection = selectedPlanets.filter(
+        (planet) => planet.name !== name
+      );
     } else {
-      updatedSelection = [...selectedPlanets, name];
+      updatedSelection = [
+        ...selectedPlanets,
+        {
+          name,
+          thumbnail: `/destination/image-${name.toLowerCase()}.png`,
+        },
+      ];
     }
+
     onAddPlanet(updatedSelection);
     /*console.log(
       `You selected the following planet: ${name}, with index: ${index}`
@@ -97,12 +119,12 @@ export const Destinations = () => {
               <p>You have {selectedPlanets.length} planets in your wishlist</p>
               <ul>
                 {selectedPlanets.map((planet) => (
-                  <li key={planet}>{planet}</li>
+                  <li key={planet.name}>{planet.name}</li>
                 ))}
               </ul>
             </>
           )}
-          <b>List coming soon after lesson 3!</b>
+          {/*} <b>List coming soon after lesson 3!</b>{*/}
 
           {/* STOP! - this is for week 3!*/}
           {/* TASK - React 1 week 3 */}
@@ -112,20 +134,29 @@ export const Destinations = () => {
           {/* Convert the list, so it is using selectedPlanets.map() to display the items  */}
           {/* Implement the "REMOVE" function */}
           {/* uncomment the following code snippet: */}
-          {/* 
+
+          {selectedPlanets.map((planet) => (
+            <PlanetWishlistItem
+              key={planet.name} // Use a unique key
+              name={planet.name}
+              onRemove={() => onAddOrRemovePlanet(planet.name)}
+              thumbnail={planet.thumbnail}
+            />
+          ))}
+
           <h3>Your current wishlist</h3>
           <div className={styles.wishlistList}>
-            <PlanetWishlistItem 
+            <PlanetWishlistItem
               name="europa"
-              onRemove={() => removeFromWishlist('europa')}
+              onRemove={() => removeFromWishlist("europa")}
               thumbnail="/destination/image-europa.png"
             />
-            <PlanetWishlistItem 
+            <PlanetWishlistItem
               name="europa"
-              onRemove={() => removeFromWishlist('europa')}
+              onRemove={() => removeFromWishlist("europa")}
               thumbnail="/destination/image-europa.png"
             />
-          </div> */}
+          </div>
         </section>
         <section className="card">
           <h2>Possible destinations</h2>
@@ -146,6 +177,8 @@ export const Destinations = () => {
               index={index}
             />
           ))}
+
+          <AddWishlistItem onAddWishlistItem={handleAddPlanet} />
         </section>
       </main>
     </div>
