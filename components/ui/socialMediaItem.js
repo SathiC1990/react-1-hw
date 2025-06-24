@@ -1,5 +1,5 @@
 "use client";
-import styles from "./socialMediaItem.module.css";
+import styles from "./SocialMediaItem.module.css";
 import Link from "next/link";
 import Image from "next/image";
 const SocialMediaItem = ({ url, title, icon }) => {
