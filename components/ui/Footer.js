@@ -2,6 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import styles from "./Footer.module.css";
+import Link from "next/link";
+import SocialMediaItem from "./socialMediaItem";
 
 export const Footer = () => {
   const path = usePathname().split("?")[0];
@@ -18,20 +20,54 @@ export const Footer = () => {
       {/* TASK - React 1 week 2 */}
       {/* Create a new List for the Pages */}
       {/* We need to use the <Link /> component here */}
-      {/* <div className={styles.pages}>
+      <div className={styles.pages}>
         <h3>Pages</h3>
         <ul>
-          <li> <Link/> </li>
-          ...
+          <li>
+            <Link href="/about_us">About Us</Link>
+          </li>
+          <li>
+            <Link href="/destination">Destination</Link>
+          </li>
+          <li>
+            <Link href="/nasa_collaboration">NASA Collaboration</Link>
+          </li>
         </ul>
-      </div> */}
+      </div>
       {/* Docs for the Link: https://nextjs.org/docs/pages/api-reference/components/link */}
 
       {/* TASK - React 1 week 1 */}
       {/* Add a new list item for LINKEDIN */}
       <div className={styles.footerLinks}>
         <h3>Follow us</h3>
+
         <ul className={styles.footerList}>
+          <SocialMediaItem
+            url="https://facebook.com"
+            title="Facebook"
+            icon="/socialmedia/facebook.png"
+          />
+          <SocialMediaItem
+            url="https://instagram.com"
+            title="Instagram"
+            icon="/socialmedia/instagram.png"
+          />
+          <SocialMediaItem
+            url="https://tiktok.com"
+            title="Tiktok"
+            icon="/socialmedia/tiktok.png"
+          />
+          <SocialMediaItem
+            url="https://google.com"
+            title="Google"
+            icon="/socialmedia/google.png"
+          />
+          <SocialMediaItem
+            url="https://linkedin.com"
+            title="Linkedin"
+            icon="/socialmedia/linkedin.png"
+          />
+          {/*}
           <li>
             <a href="https://facebook.com">Facebook</a>
           </li>

@@ -1,0 +1,26 @@
+.socialMediaItem {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+.socialMediaLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.socialMediaLink:hover {
+  color: #00bfff; /* Optional: Change to your theme color */
+}
+
+.socialMediaIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.socialMediaText {
+  font-size: 16px;
+}
